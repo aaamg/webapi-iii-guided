@@ -9,6 +9,17 @@ const server = express();
 server.use(helmet()); //third party
 server.use(express.json());//built in
 
+//three amigos 
+function dateLogger(req, res, next) {
+  console.log(new Date().toISOString())
+
+  next();
+}
+
+function logger(req, res, next){
+  
+}
+
 server.use('/api/hubs', hubsRouter);
 
 server.get('/', (req, res) => {
